@@ -30,6 +30,9 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "photo")
+    private String photo;
+
     public User() {
     }
 
@@ -81,12 +84,21 @@ public class User {
         this.password = password;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", date=" + date +
+                ", photo=" + photo +
                 '}';
     }
 }

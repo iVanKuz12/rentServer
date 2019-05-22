@@ -12,6 +12,10 @@ public interface UserService {
 
     User getById(long id);
 
+    User getByEmail(String email);
+
+    User getByPhone(String phone);
+
     User getByEmailAndPhone(String email, String phone);
 
     User getByEmailAndPassword(String email, String password);

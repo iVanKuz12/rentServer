@@ -12,6 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
+    private static final String OK = "OK";
+    private static final String ERROR = "ERROR";
 
     @Autowired
     private UserService userService;
@@ -19,22 +21,6 @@ public class UserController {
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @ResponseBody
     public List<User> getUsers(){
-      /*  User user = new User();
-        user.setName("Ivan");
-        user.setDate(new Date());
-        user.setPhone("89512693636");
-        user.setEmail("neo123.09@gmail.com");
-        user.setPassword("neo12309");
-        userService.save(user);*/
-
-        /*User user1 = new User();
-        user1.setName("Ivan2");
-        user1.setPhone("89512696363");
-        user1.setEmail("neo123.09@gmail.ru");
-        user1.setDate(new Date());
-        userService.save(user1);*/
-
-
         return userService.getAll();
     }
 
@@ -44,22 +30,52 @@ public class UserController {
         return userService.getByEmailAndPhone(email, phone);
     }
 
-    @RequestMapping(value = "/getByEmailAndPassword" , method = RequestMethod.GET)
+    @RequestMapping(value = "/getByEmailAndPassword" , method = RequestMethod.POST)
     @ResponseBody
-    public User getByEmailAndPassword (@RequestParam("email") String email, @RequestParam("password") String password ) {
-        return userService.getByEmailAndPassword(email, password);
+    public User getByEmailAndPassword (@RequestBody User user) {
+        return userService.getByEmailAndPassword(user.getEmail(), user.getPassword());
     }
 
-    @RequestMapping(value = "/getOne", method = RequestMethod.GET)
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     @ResponseBody
     public User getUser( @RequestParam("id") long id){
         return userService.getById(id);
     }
 
-    @RequestMapping(value = "/setOne", method = RequestMethod.POST)
+    @RequestMapping(value = "/setUser", method = RequestMethod.POST)
     @ResponseBody
-    public void saveUser(@RequestBody User user){
+    public User saveUser(@RequestBody User user){
         user.setDate(new Date());
         userService.save(user);
+        String email = user.getEmail();
+        String password = user.getPassword();
+        return userService.getByEmailAndPassword(email, password);
+    }
+
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    @ResponseBody
+    public User updUser(@RequestBody User user){
+        user.setDate(new Date());
+        userService.save(user);
+        String email = user.getEmail();
+        String password = user.getPassword();
+        return userService.getByEmailAndPassword(email, password);
+    }
+
+    //Registration
+    @RequestMapping(value = "/email", method = RequestMethod.GET)
+    @ResponseBody
+    public String getEmail(@RequestParam("email") String email){
+        if (userService.getByEmail(email) == null)
+            return OK;
+        return ERROR;
+    }
+
+    @RequestMapping(value = "/phone", method = RequestMethod.GET)
+    @ResponseBody
+    public String getPhone(@RequestParam("phone") String phone){
+        if (userService.getByPhone(phone) == null)
+            return OK;
+        return ERROR;
     }
 }

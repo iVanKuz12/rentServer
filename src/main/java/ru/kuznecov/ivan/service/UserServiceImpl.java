@@ -24,6 +24,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getByEmail(String email) {
+        return userRep.findByEmail(email);
+    }
+
+    @Override
+    public User getByPhone(String phone) {
+        return userRep.findByPhone(phone);
+    }
+
+    @Override
     public User getByEmailAndPhone(String email, String phone) {
         return userRep.findByEmailAndPhone(email, phone);
     }
