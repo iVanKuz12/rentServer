@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import ru.kuznecov.ivan.entity.User;
 
-import java.util.List;
+
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
@@ -13,9 +13,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
     User findByPhone(String phone);
 
+    @Query(value = "SELECT * FROM users JOIN things on users.id = things.renterid WHERE things.discription = ?1", nativeQuery = true)
+    User myQuery(String description);
 
-
-  /*  @Query("SELECT b FROM Users b ORDER BY b.date DESC ")
-    List<User> fAl();*/
 
 }

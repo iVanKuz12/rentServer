@@ -78,7 +78,6 @@ public class DatabaseConfig {
             Properties properties = new Properties();
             InputStream is = getClass().getClassLoader().getResourceAsStream("hibernate.properties");
             properties.load(is);
-
             return properties;
         } catch (IOException e) {
             throw new IllegalArgumentException("Can't find 'hibernate.properties' in classpath!", e);

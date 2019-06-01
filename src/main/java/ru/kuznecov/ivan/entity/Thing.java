@@ -12,16 +12,18 @@ public class Thing {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
+
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "categorId", nullable = false)
+    @Column(name = "id_category", nullable = false)
     private int categorId;
 
-    @Column(name = "renterId", nullable = false)
-    private long renterId;
 
-    @Column(name = "cityId", nullable = false)
+    @Column(name = "id_user", nullable = false)
+    private long userId;
+
+    @Column(name = "id_city", nullable = false)
     private int cityId;
 
     @Column(name = "discription", nullable = false)
@@ -42,6 +44,7 @@ public class Thing {
 
     public Thing() {
     }
+
 
     public long getId() {
         return id;
@@ -67,12 +70,12 @@ public class Thing {
         this.categorId = categorId;
     }
 
-    public long getRenterId() {
-        return renterId;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setRenterId(long renterId) {
-        this.renterId = renterId;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public int getCityId() {

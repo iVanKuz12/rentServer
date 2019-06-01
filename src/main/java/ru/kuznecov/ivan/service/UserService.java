@@ -24,4 +24,8 @@ public interface UserService {
 
     void remove(long id);
 
+    User my(String dis);
+
+
+
 }

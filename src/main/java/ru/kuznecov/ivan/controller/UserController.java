@@ -30,6 +30,12 @@ public class UserController {
         return userService.getByEmailAndPhone(email, phone);
     }
 
+    @RequestMapping(value = "/pro" , method = RequestMethod.GET)
+    @ResponseBody
+    public User my (@RequestParam("dis") String dis ) {
+        return userService.my(dis);
+    }
+
     @RequestMapping(value = "/getByEmailAndPassword" , method = RequestMethod.POST)
     @ResponseBody
     public User getByEmailAndPassword (@RequestBody User user) {

@@ -3,6 +3,8 @@ package ru.kuznecov.ivan.entity;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -96,7 +98,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + name +
                 ", date=" + date +
                 ", photo=" + photo +
                 '}';

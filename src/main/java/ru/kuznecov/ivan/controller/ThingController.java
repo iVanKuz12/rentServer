@@ -42,11 +42,7 @@ public class ThingController {
     @RequestMapping(value = "/setOne", method = RequestMethod.POST)
     @ResponseBody
     public void saveThing(@RequestBody Thing thing){
-        thing.setCategorId(0);
-        thing.setCityId(0);
-        thing.setDate(new Date());
-        thing.setPhoto("http");
-        thing.setStatus(1);
+
         thingService.save(thing);
     }
 }

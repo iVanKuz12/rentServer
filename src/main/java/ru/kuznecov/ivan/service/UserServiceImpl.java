@@ -53,6 +53,11 @@ public class UserServiceImpl implements UserService {
         userRep.delete(id);
     }
 
+    @Override
+    public User my(String dis){
+        return userRep.myQuery(dis);
+    }
+
  /*   @Override
     public List<User> getfAl(){
         return userRep.fAl();
