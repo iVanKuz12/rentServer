@@ -4,6 +4,7 @@ package ru.kuznecov.ivan.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.kuznecov.ivan.entity.City;
+import ru.kuznecov.ivan.pojo.CityPojo;
 import ru.kuznecov.ivan.service.CityService;
 import java.util.List;
 
@@ -20,6 +21,11 @@ public class CityController {
     @ResponseBody
     public List<City> getCity(){
         return cityService.getAll();
+    }
+    @RequestMapping(value = "/getAllPojo", method = RequestMethod.GET)
+    @ResponseBody
+    public List<CityPojo> getCityPojo(){
+        return cityService.getAllPojo();
     }
 
     @RequestMapping(value = "/set", method = RequestMethod.GET)

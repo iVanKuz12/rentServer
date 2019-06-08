@@ -8,8 +8,6 @@ public interface UserService {
 
     List<User> getAll();
 
-    /*List<User> getfAl();*/
-
     User getById(long id);
 
     User getByEmail(String email);

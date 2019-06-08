@@ -4,11 +4,9 @@ package ru.kuznecov.ivan.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.kuznecov.ivan.entity.Thing;
-import ru.kuznecov.ivan.repository.ThingRepository;
 import ru.kuznecov.ivan.service.ThingService;
 
 
-import java.util.Date;
 import java.util.List;
 
 @RestController

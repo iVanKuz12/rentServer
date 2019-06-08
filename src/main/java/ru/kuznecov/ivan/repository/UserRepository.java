@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
     User findByPhone(String phone);
 
-    @Query(value = "SELECT * FROM users JOIN things on users.id = things.renterid WHERE things.discription = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM users JOIN things on users.id = things.id_user WHERE things.discription = ?1", nativeQuery = true)
     User myQuery(String description);
 
 

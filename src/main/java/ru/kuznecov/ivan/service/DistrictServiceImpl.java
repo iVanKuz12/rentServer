@@ -18,6 +18,11 @@ public class DistrictServiceImpl implements DistrictService {
         return districtRepository.findAll();
     }
 
+    @Override
+    public List<District> getAllParentId(long parentId) {
+        return districtRepository.myQue(parentId);
+    }
+
 
     @Override
     public void save(District district) {

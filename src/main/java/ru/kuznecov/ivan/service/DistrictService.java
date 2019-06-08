@@ -7,6 +7,8 @@ import java.util.List;
 public interface DistrictService {
     List<District> getAll();
 
+    List<District> getAllParentId(long parentId);
+
 
     void save(District district);
 }
