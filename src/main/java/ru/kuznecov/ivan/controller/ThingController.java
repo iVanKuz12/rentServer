@@ -13,22 +13,13 @@ import java.util.List;
 @RequestMapping(value = "/thing")
 public class ThingController {
 
-   /* @Autowired
-    private ThingRepository thingRepository;
-
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Thing> getThings(){
-        return thingRepository.findAll();
-    }*/
-
     @Autowired
     private ThingService thingService;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @ResponseBody
     public List<Thing> getThings(){
-        return thingService.getAll();
+        return thingService.getAllByStatus();
     }
 
     @RequestMapping(value = "/getOne")
@@ -37,10 +28,15 @@ public class ThingController {
         return thingService.getById(id);
     }
 
-    @RequestMapping(value = "/setOne", method = RequestMethod.POST)
+    @RequestMapping(value = "/addThing", method = RequestMethod.POST)
     @ResponseBody
-    public void saveThing(@RequestBody Thing thing){
-
-        thingService.save(thing);
+    public long saveThing(@RequestBody Thing thing){
+        long id = thingService.save(thing);
+        return id;
+    }
+    @RequestMapping(value = "/addPhotoThing", method = RequestMethod.POST)
+    @ResponseBody
+    public String savePhotoThing(@RequestBody Thing thing){
+        return thingService.savePhoto(thing);
     }
 }

@@ -33,7 +33,7 @@ public class Thing {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column(name = "photo", nullable = false)
+    @Column(name = "photo")
     private String photo;
 
     @Column(name = "status", nullable = false)

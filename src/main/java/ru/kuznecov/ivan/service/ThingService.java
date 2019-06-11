@@ -10,7 +10,11 @@ public interface ThingService {
 
     Thing getById(long id);
 
-    void save(Thing thing);
+    long save(Thing thing);
+
+    String savePhoto(Thing thing);
+
+    List<Thing> getAllByStatus();
 
     void remove(long id);
 

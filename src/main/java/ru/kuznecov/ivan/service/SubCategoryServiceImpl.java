@@ -17,5 +17,10 @@ public class SubCategoryServiceImpl implements SubCategoryService{
     public List<SubCategory> getAll() {
         return subCategoryRepository.findAll();
     }
+
+    @Override
+    public List<SubCategory> getAllParentId(long id) {
+        return subCategoryRepository.getAllParentId(id);
+    }
 }
 

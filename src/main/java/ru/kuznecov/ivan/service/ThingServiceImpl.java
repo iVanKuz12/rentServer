@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.kuznecov.ivan.entity.Thing;
 import ru.kuznecov.ivan.repository.ThingRepository;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class ThingServiceImpl implements ThingService {
@@ -23,8 +24,24 @@ public class ThingServiceImpl implements ThingService {
     }
 
     @Override
-    public void save(Thing thing) {
-        thingRep.saveAndFlush(thing);
+    public long save(Thing thing) {
+        thing.setDate(new Date());
+        thing = thingRep.saveAndFlush(thing);
+        return thing.getId();
+    }
+
+    @Override
+    public String savePhoto(Thing thing) {
+        long id = thing.getId();
+        Thing getThing = thingRep.findOne(id);
+        getThing.setPhoto(thing.getPhoto());
+        thingRep.saveAndFlush(getThing);
+        return "OK";
+    }
+
+    @Override
+    public List<Thing> getAllByStatus() {
+        return thingRep.getAllByStatus(1);
     }
 
     @Override

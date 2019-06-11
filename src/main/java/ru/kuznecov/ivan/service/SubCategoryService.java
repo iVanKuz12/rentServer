@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SubCategoryService {
     List<SubCategory> getAll();
+    List<SubCategory> getAllParentId(long id);
 }
