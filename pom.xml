@@ -15,7 +15,7 @@
 
     <spring.version>4.3.23.RELEASE</spring.version>
     <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-    <spring-data-jpa.version>1.9.2.RELEASE</spring-data-jpa.version>
+    <spring-data-jpa.version>1.11.23.RELEASE</spring-data-jpa.version>
     <hibernate.version>5.0.2.Final</hibernate.version>
     <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
     <commons-dbcp2.version>2.6.0</commons-dbcp2.version>
